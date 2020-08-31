@@ -1,0 +1,13 @@
+- name: Push Config File
+  hosts: Cisco
+  connection: network_cli
+  gather_facts: false
+
+  tasks:
+  - name: Push config file
+    ios_config:
+       src: "push/push_data.cfg"
+
+  - name: save running to startup when modified
+    ios_config:
+       save_when: modified
