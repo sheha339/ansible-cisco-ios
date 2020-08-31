@@ -1,0 +1,16 @@
+- name: "Show Version"
+  hosts: Cisco
+  gather_facts: no
+
+  tasks:
+    - name: Run cli_command on Cisco and display results
+      block:
+      - name: Run cli_command on Cisco
+        cli_command:
+          command: show version
+        register: result
+
+      - name: Display result to terminal window
+        debug:
+          var: result.stdout_lines
+      when: ansible_network_os == 'ios'
