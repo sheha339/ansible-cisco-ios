@@ -1,0 +1,10 @@
+- name: "Save Config"
+  hosts: Cisco
+  gather_facts: false
+
+  tasks:
+    - name: Configure banner from file
+      ios_banner:
+        banner:  motd
+        text: "{{ lookup('file', 'push/banner.cfg') }}"
+        state: present
