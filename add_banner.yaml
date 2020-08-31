@@ -1,0 +1,13 @@
+- name: "Save Config"
+  hosts: Cisco
+  gather_facts: false
+
+  tasks:
+    - name: configure the login banner
+      ios_banner:
+        banner: login
+        text: |
+          this is my login banner
+          that contains a multiline
+          string
+        state: present
