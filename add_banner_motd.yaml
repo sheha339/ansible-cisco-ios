@@ -1,4 +1,4 @@
-- name: "Save Config"
+- name: "Add motd banner"
   hosts: Cisco
   gather_facts: false
 
